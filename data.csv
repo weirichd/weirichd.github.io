@@ -1,0 +1,263 @@
+i,commit_count,next_step
+1,14,pairing
+2,23,resubmit
+3,16,pairing
+4,23,pairing
+5,30,resubmit
+6,11,resubmit
+7,6,resubmit
+8,28,pairing
+9,30,resubmit
+10,29,pairing
+11,30,pairing
+12,14,resubmit
+13,30,pairing
+14,30,resubmit
+15,30,pairing
+16,30,tech screen
+17,6,resubmit
+18,30,tech screen
+19,21,pairing
+20,23,resubmit
+21,30,resubmit
+22,12,pairing
+23,30,pairing
+24,18,resubmit
+25,2,resubmit
+26,23,pairing
+27,1,resubmit
+28,12,pairing
+29,14,pairing
+30,30,pairing
+31,2,resubmit
+32,17,pairing
+33,17,resubmit
+34,30,pairing
+35,6,pairing
+36,22,resubmit
+37,23,pairing
+38,30,resubmit
+39,14,pairing
+40,30,resubmit
+41,30,pairing
+42,21,resubmit
+43,21,pairing
+44,17,pairing
+45,27,pairing
+46,17,resubmit
+47,30,resubmit
+48,20,pairing
+49,19,resubmit
+50,23,resubmit
+51,20,pairing
+52,28,tech screen
+53,4,resubmit
+54,19,pairing
+55,30,pairing
+56,11,pairing
+57,30,resubmit
+58,30,tech screen
+59,5,resubmit
+60,24,tech screen
+61,30,pairing
+62,30,pairing
+63,30,pairing
+64,25,resubmit
+65,30,resubmit
+66,25,resubmit
+67,30,pairing
+68,10,resubmit
+69,10,pairing
+70,11,pairing
+71,9,pairing
+72,12,tech screen
+73,24,pairing
+74,19,pairing
+75,30,pairing
+76,8,resubmit
+77,30,resubmit
+78,15,resubmit
+79,27,resubmit
+80,30,pairing
+81,23,resubmit
+82,6,tech screen
+83,27,pairing
+84,19,tech screen
+85,30,pairing
+86,30,pairing
+87,30,resubmit
+88,20,tech screen
+89,30,pairing
+90,27,resubmit
+91,5,tech screen
+92,2,tech screen
+93,30,pairing
+94,4,resubmit
+95,23,pairing
+96,11,resubmit
+97,20,pairing
+98,20,resubmit
+99,14,tech screen
+100,25,pairing
+101,24,pairing
+102,30,pairing
+103,12,tech screen
+104,27,pairing
+105,10,pairing
+106,20,resubmit
+107,30,pairing
+108,12,pairing
+109,30,pairing
+110,28,pairing
+111,12,resubmit
+112,11,resubmit
+113,23,pairing
+114,10,resubmit
+115,25,pairing
+116,3,tech screen
+117,22,pairing
+118,18,resubmit
+119,23,resubmit
+120,30,tech screen
+121,30,resubmit
+122,30,tech screen
+123,19,resubmit
+124,30,pairing
+125,30,tech screen
+126,30,pairing
+127,22,resubmit
+128,30,resubmit
+129,30,resubmit
+130,22,pairing
+131,17,pairing
+132,30,resubmit
+133,30,pairing
+134,30,pairing
+135,16,resubmit
+136,22,tech screen
+137,30,pairing
+138,18,resubmit
+139,30,resubmit
+140,30,resubmit
+141,30,resubmit
+142,11,resubmit
+143,11,resubmit
+144,30,pairing
+145,30,pairing
+146,25,pairing
+147,30,pairing
+148,20,pairing
+149,10,pairing
+150,30,pairing
+151,30,pairing
+152,30,pairing
+153,10,resubmit
+154,8,tech screen
+155,28,pairing
+156,30,pairing
+157,21,tech screen
+158,30,pairing
+159,21,resubmit
+160,30,pairing
+161,30,pairing
+162,30,pairing
+163,6,pairing
+164,11,tech screen
+165,20,tech screen
+166,30,pairing
+167,24,resubmit
+168,24,pairing
+169,30,resubmit
+170,30,pairing
+171,21,pairing
+172,30,resubmit
+173,30,pairing
+174,30,pairing
+175,20,tech screen
+176,14,pairing
+177,30,pairing
+178,12,resubmit
+179,30,pairing
+180,12,resubmit
+181,30,pairing
+182,18,pairing
+183,9,pairing
+184,30,pairing
+185,26,resubmit
+186,30,resubmit
+187,30,pairing
+188,30,pairing
+189,11,pairing
+190,26,pairing
+191,30,pairing
+192,22,pairing
+193,7,resubmit
+194,30,pairing
+195,16,resubmit
+196,13,resubmit
+197,9,tech screen
+198,30,pairing
+199,30,pairing
+200,30,pairing
+201,27,pairing
+202,14,resubmit
+203,16,resubmit
+204,30,resubmit
+205,10,resubmit
+206,30,resubmit
+207,30,pairing
+208,19,pairing
+209,30,resubmit
+210,30,resubmit
+211,10,resubmit
+212,14,resubmit
+213,30,resubmit
+214,30,resubmit
+215,30,resubmit
+216,30,resubmit
+217,18,tech screen
+218,30,pairing
+219,30,pairing
+220,30,pairing
+221,30,pairing
+222,30,pairing
+223,29,pairing
+224,5,resubmit
+225,30,pairing
+226,30,pairing
+227,30,resubmit
+228,30,tech screen
+229,14,resubmit
+230,30,dismiss
+231,13,resubmit
+232,30,pairing
+233,25,resubmit
+234,22,resubmit
+235,13,tech screen
+236,2,dismiss
+237,18,pairing
+238,22,pairing
+239,12,resubmit
+240,30,resubmit
+241,30,resubmit
+242,13,resubmit
+243,30,pairing
+244,10,pairing
+245,27,resubmit
+246,30,pairing
+247,26,resubmit
+248,30,pairing
+249,29,resubmit
+250,7,resubmit
+251,25,pairing
+252,26,pairing
+253,29,pairing
+254,30,resubmit
+255,30,pairing
+256,30,pairing
+257,30,resubmit
+258,30,pairing
+259,30,pairing
+260,30,pairing
+261,9,dismiss
+262,30,pairing
