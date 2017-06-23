@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Kata Data Visualization</title>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<style>
+div.toolTip {
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  font: .8em sans-serif;
+  background: lightgray;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+</style>
+<body>
+  <p>
+    Plot of the data for katas.
+  </p>
+
+  <script src="format.js"></script>
+  <script src="plot.js"></script>
+
+  <br />
+
+  <input type="button" value="Change!" onclick="update_plot(data, 'review_time', 'lang_count')"></input>
+</body>
+</html>
