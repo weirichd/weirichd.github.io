@@ -4,8 +4,6 @@ width = 450 - margin.left - margin.right,
 height = 450 - margin.top - margin.bottom;
 
 // set the ranges
-var x = d3.scaleLinear().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // Tooltip
@@ -18,10 +16,31 @@ var svg = d3.select("body").append("svg")
 .append("g")
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+var xScaleLinear = d3.scaleLinear().range([0, width]);
+var yScaleLinear = d3.scaleLinear().range([height, 0]);
+
+var xScaleTime = d3.scaleTime().range([0, width]);
+var yScaleTime = d3.scaleTime().range([height, 0]);
+
 function update_plot(data, x_var, y_var) {
+  // Get the correct axis
+  var xScale;
+  var yScale;
+  if(varTypes[x_var].type == 'num') {
+    xScale = xScaleLinear;
+  } else {
+    xScale = xScaleTime;
+  }
+
+  if(varTypes[y_var].type == 'num') {
+    yScale = yScaleLinear;
+  } else {
+    yScale = yScaleTime;
+  }
+
   // Scale the range of the data
-  x.domain(d3.extent(data, function(d) { return d[x_var]; }));
-  y.domain(d3.extent(data, function(d) { return d[y_var]; }));
+  xScale.domain(d3.extent(data, function(d) { return d[x_var]; }));
+  yScale.domain(d3.extent(data, function(d) { return d[y_var]; }));
 
   // Add the scatterplot
   var dots = svg.selectAll("circle").data(data)
@@ -42,29 +61,62 @@ function update_plot(data, x_var, y_var) {
     divTooltip.transition().duration(500).style("opacity", 0);
   })
   .merge(dots).transition()
-  .attr("cx", function(d) { return x(d[x_var]); })
-  .attr("cy", function(d) { return y(d[y_var]); });
+  .attr("cx", function(d) { return xScale(d[x_var]); })
+  .attr("cy", function(d) { return yScale(d[y_var]); });
 
   dots.exit().remove();
 
+  svg.selectAll(".axis").remove()
+
   // Add the X Axis
   svg.append("g")
+  .attr("class", "axis")
   .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(x))
+  .call(d3.axisBottom(xScale))
   .selectAll("text")
   .attr("transform", "rotate(90)")
   .attr("y", 0)
   .attr("x", 9)
   .attr("dy", ".35em")
   .style("text-anchor", "start");
+  svg.append("text")
+  .attr("class", "axis")
+  .attr("transform","translate(" + (width/2) + " ," + (height + margin.top + 20) + ")")
+  .style("text-anchor", "middle")
+  .text(varTypes[x_var].label);
 
   // Add the Y Axis
-  svg.append("g").call(d3.axisLeft(y));
+  svg.append("g").attr("class", "axis").call(d3.axisLeft(yScale));
+  svg.append("text")
+  .attr("class", "axis")
+  .attr("transform", "rotate(-90)")
+  .attr("y", 0 - margin.left)
+  .attr("x",0 - (height / 2))
+  .attr("dy", "1em")
+  .style("text-anchor", "middle")
+  .text(varTypes[y_var].label);
 }
 
 // Get the data
 var data;
 d3.csv("data.csv", format, function(d) {
   data = d;
+
+  // Make the Legend
+  steps = d3.nest().key(function(d) { return d.next_step; }).entries(data);
+  legend = d3.select("legend").data(steps)
+  var g = legend.enter().append("g");
+  g.append("svg")
+  .attr("width", "20px")
+  .attr("height", "12px")
+  .append("rect")
+  .attr("x", "3px")
+  .attr("y", "0px")
+  .attr("width", "12px")
+  .attr("height", "12px")
+  .attr("fill", function(d) { return color(d.key);} );
+  g.append().text( function(d) { return d.key;});
+  g.append("br")
+
   update_plot(data, 'commit_count', 'account_age');
 });
