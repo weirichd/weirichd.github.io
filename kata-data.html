@@ -27,7 +27,11 @@ div.toolTip {
 
   <br />
 
-  <input type="button" value="Commit Count vs Account Age" onclick="update_plot(data, 'commit_count', 'account_age')"></input>
-  <input type="button" value="Review Date vs Review Time" onclick="update_plot(data, 'review_date', 'review_time')"></input>
+  X-axis: <select id="x_variable"></select>
+  <br />
+  Y-axis: <select id="y_variable"></select>
+
+  <br />
+  <input type="button" value="Update Axis" onclick="update_plot(data, x_variable, y_variable)"></input>
 </body>
 </html>

@@ -22,6 +22,9 @@ var yScaleLinear = d3.scaleLinear().range([height, 0]);
 var xScaleTime = d3.scaleTime().range([0, width]);
 var yScaleTime = d3.scaleTime().range([height, 0]);
 
+var x_variable = 'commit_count';
+var y_variable = 'account_age';
+
 function update_plot(data, x_var, y_var) {
   // Get the correct axis
   var xScale;
@@ -123,24 +126,43 @@ function update_plot(data, x_var, y_var) {
 
 // Get the data
 var data;
+
 d3.csv("data.csv", format, function(d) {
   data = d;
 
-  // // Make the Legend
-  // steps = d3.nest().key(function(d) { return d.next_step; }).entries(data);
-  // legend = d3.select(".legend").data(steps);
-  // var g = legend.enter().append("g");
-  // g.append("svg")
-  // .attr("width", "20px")
-  // .attr("height", "12px")
-  // .append("rect")
-  // .attr("x", "3px")
-  // .attr("y", "0px")
-  // .attr("width", "12px")
-  // .attr("height", "12px")
-  // .attr("fill", function(d) { return color(d.key);} );
-  // g.append().text( function(d) { return stepDescriptions[d.key];});
-  // g.append("br")
-
   update_plot(data, 'commit_count', 'account_age');
+
+  keys = Object.keys(data[0]);
+
+  var x_selector = d3.select("#x_variable");
+  var y_selector = d3.select("#y_variable");
+
+  // Put in the dropdown menus
+  x_selector.selectAll("option")
+  .data(keys.filter (function(d) { return varTypes[d].type != 'string'}))
+  .enter()
+  .append("option")
+  .attr("value", function(d) { return d;})
+  .text( function(d) { return varTypes[d].label;});
+
+  x_selector.attr("value", x_variable)
+  .on("change", function() {
+    var selectValue = d3.select("#x_variable").property("value");
+    x_variable = selectValue;
+  });
+
+  // Put in the dropdown menus
+  y_selector.selectAll("option")
+  .data(keys.filter (function(d) { return varTypes[d].type != 'string'}))
+  .enter()
+  .append("option")
+  .attr("value", function(d) { return d;})
+  .text( function(d) { return varTypes[d].label;});
+
+  y_selector.attr("value", y_variable)
+  .on("change", function() {
+    var selectValue = d3.select("#y_variable").property("value");
+    y_variable = selectValue;
+  });
+
 });
