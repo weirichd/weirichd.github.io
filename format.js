@@ -33,22 +33,22 @@ function format(d) {
 }
 
 var varTypes = {
-  name :           { type :'string', label : 'Candidate Name'},
-  user :           { type :'string', label : 'Github Username'},
-  account_date :   { type :'time', label : 'Github Account Creation Date'},
-  review_date :    { type :'time', label : 'Kata Review Date'},
-  review_time :    { type :'time', label : 'Kata Review Time of Day'},
-  account_age :    { type :'num', label : 'Github Account Age at Review (Days)'},
-  followers :      { type :'num', label : 'Github Followers'},
-  public_repos :   { type :'num', label : 'Number of public Repositories'},
-  repo :           { type :'string', label : 'Kata Repository Name'},
+  name :           { type : 'string', label : 'Candidate Name'},
+  user :           { type : 'string', label : 'Github Username'},
+  account_date :   { type : 'time', label : 'Github Account Creation Date'},
+  review_date :    { type : 'time', label : 'Kata Review Date'},
+  review_time :    { type : 'time', label : 'Kata Review Time of Day'},
+  account_age :    { type : 'num', label : 'Github Account Age at Review (Days)'},
+  followers :      { type : 'num', label : 'Github Followers'},
+  public_repos :   { type : 'num', label : 'Number of public Repositories'},
+  repo :           { type : 'string', label : 'Kata Repository Name'},
   commit_count :   { type : 'num', label : 'Number of Commits'},
-  lang :           { type :'string', label : 'Kata Language'},
-  lang_count :     { type :'num', label : 'Number of Languages'},
-  contributors :   { type :'num', label : 'Number of Contributors'},
-  commit_mean :    { type :'num', label : 'Mean Commits Size (Lines of Code)'},
-  commit_std :     { type :'num', label : 'Standard Deviation for Commit Size (Lines of Code)'},
-  commit_max :     { type :'num', label : 'Max Commit Size (Lines of Code)'},
+  lang :           { type : 'string', label : 'Kata Language'},
+  lang_count :     { type : 'num', label : 'Number of Languages'},
+  contributors :   { type : 'num', label : 'Number of Contributors'},
+  commit_mean :    { type : 'num', label : 'Mean Commits Size (Lines of Code)'},
+  commit_std :     { type : 'num', label : 'Standard Deviation for Commit Size (Lines of Code)'},
+  commit_max :     { type : 'num', label : 'Max Commit Size (Lines of Code)'},
   commit_min :     { type : 'num', label : 'Min Commit Size (Lines of Code)'},
   addition_mean :  { type : 'num', label : 'Mean Number of Additions (Lines of Code)'},
   addition_std :   { type : 'num', label : 'Standard Deviation for Additions (Lines of Code)'},
@@ -58,5 +58,12 @@ var varTypes = {
   deletions_std :  { type : 'num', label : 'Standard Deviation for Deletions (Lines of Code)'},
   deletions_max :  { type : 'num', label : 'Max Number of Deletions (Lines of Code)'},
   deletions_min :  { type : 'num', label : 'Min Number of Deletions (Lines of Code)'},
-  next_step :      { type: 'string', label : 'Next Step for this Candidate'}
+  next_step :      { type : 'string', label : 'Next Step for this Candidate'}
+};
+
+var stepDescriptions = {
+  pairing : 'Proceed to Pairing',
+  resubmit : 'Take Feedback and Resubmit',
+  'tech screen' : 'Request a Tech Screening',
+  dismiss : 'Dismiss from Interview Process'
 };

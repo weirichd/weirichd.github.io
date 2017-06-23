@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 75, left: 75},
-width = 450 - margin.left - margin.right,
-height = 450 - margin.top - margin.bottom;
+var margin = {top: 30, right: 500, bottom: 100, left: 75},
+width = 950 - margin.left - margin.right,
+height = 475 - margin.top - margin.bottom;
 
 // set the ranges
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -74,14 +74,14 @@ function update_plot(data, x_var, y_var) {
   .attr("transform", "translate(0," + height + ")")
   .call(d3.axisBottom(xScale))
   .selectAll("text")
-  .attr("transform", "rotate(90)")
-  .attr("y", 0)
-  .attr("x", 9)
+  .attr("transform", "rotate(35)")
+  .attr("y", 12)
+  .attr("x", 0)
   .attr("dy", ".35em")
   .style("text-anchor", "start");
   svg.append("text")
   .attr("class", "axis")
-  .attr("transform","translate(" + (width/2) + " ," + (height + margin.top + 20) + ")")
+  .attr("transform","translate(" + (width/2) + " ," + (height + margin.top + 25) + ")")
   .style("text-anchor", "middle")
   .text(varTypes[x_var].label);
 
@@ -91,10 +91,34 @@ function update_plot(data, x_var, y_var) {
   .attr("class", "axis")
   .attr("transform", "rotate(-90)")
   .attr("y", 0 - margin.left)
-  .attr("x",0 - (height / 2))
+  .attr("x", 0 - (height / 2))
   .attr("dy", "1em")
   .style("text-anchor", "middle")
   .text(varTypes[y_var].label);
+
+  var legendRectSize = 10;
+  var legendSpacing = 10;
+
+  // Add the legend
+  var legend = svg.selectAll(".legend")
+  .data(color.domain())
+  .enter()
+  .append("g")
+  .attr("class", "legend")
+  .attr('transform', function(d, i) {
+    var horz = width + 10;
+    var vert = margin.top + i * 20;
+    return 'translate(' + horz + ',' + vert + ')';
+  })
+  legend.append("rect")
+  .attr("width", legendRectSize)
+  .attr("height", legendRectSize)
+  .attr("fill", color)
+  .attr("opacity", ".70");
+  legend.append("text")
+  .text(function(d) { return stepDescriptions[d];})
+  .attr("x", "20px")
+  .attr("y", "10px");
 }
 
 // Get the data
@@ -102,21 +126,21 @@ var data;
 d3.csv("data.csv", format, function(d) {
   data = d;
 
-  // Make the Legend
-  steps = d3.nest().key(function(d) { return d.next_step; }).entries(data);
-  legend = d3.select("legend").data(steps)
-  var g = legend.enter().append("g");
-  g.append("svg")
-  .attr("width", "20px")
-  .attr("height", "12px")
-  .append("rect")
-  .attr("x", "3px")
-  .attr("y", "0px")
-  .attr("width", "12px")
-  .attr("height", "12px")
-  .attr("fill", function(d) { return color(d.key);} );
-  g.append().text( function(d) { return d.key;});
-  g.append("br")
+  // // Make the Legend
+  // steps = d3.nest().key(function(d) { return d.next_step; }).entries(data);
+  // legend = d3.select(".legend").data(steps);
+  // var g = legend.enter().append("g");
+  // g.append("svg")
+  // .attr("width", "20px")
+  // .attr("height", "12px")
+  // .append("rect")
+  // .attr("x", "3px")
+  // .attr("y", "0px")
+  // .attr("width", "12px")
+  // .attr("height", "12px")
+  // .attr("fill", function(d) { return color(d.key);} );
+  // g.append().text( function(d) { return stepDescriptions[d.key];});
+  // g.append("br")
 
   update_plot(data, 'commit_count', 'account_age');
 });
